@@ -1,0 +1,25 @@
+mat-card {
+    background-color: #fefefe;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    padding: 1rem;
+}
+
+mat-card-title a {
+    color: #e91e63;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+mat-card-title a:hover {
+    text-decoration: underline;
+}
+
+.links a {
+    color: #009688;
+    font-weight: 500;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}

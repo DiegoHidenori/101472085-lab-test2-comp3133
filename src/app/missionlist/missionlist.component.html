@@ -1,0 +1,30 @@
+<h2>SpaceX Launch Missions</h2>
+
+<app-missionfilter (yearSelected)="getMissionsByYear($event)"></app-missionfilter>
+
+<div *ngFor="let mission of missions" class="mission-card">
+  <mat-card style="margin-bottom: 1rem;">
+    <mat-card-header>
+      <mat-card-title>
+        <a [routerLink]="['/mission', mission.flight_number]" style="text-decoration: none; color: #3f51b5;">
+          #{{ mission.flight_number }} - {{ mission.mission_name }} ({{ mission.launch_year }})
+        </a>
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <p><strong>Rocket:</strong> {{ mission.rocket.rocket_name }} - {{ mission.rocket.rocket_type }}</p>
+      <p><strong>Details:</strong> {{ mission.details || 'No details available' }}</p>
+      <img *ngIf="mission.links.mission_patch_small"
+           [src]="mission.links.mission_patch_small"
+           alt="Mission Patch"
+           width="100" />
+      <div class="links">
+        <div><a *ngIf="mission.links.article_link" [href]="mission.links.article_link" target="_blank">Article</a></div>
+        <div><a *ngIf="mission.links.wikipedia" [href]="mission.links.wikipedia" target="_blank">Wikipedia</a></div>
+        <div><a *ngIf="mission.links.video_link" [href]="mission.links.video_link" target="_blank">Video</a></div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
